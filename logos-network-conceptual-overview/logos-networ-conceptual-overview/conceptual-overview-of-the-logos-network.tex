@@ -17,7 +17,7 @@
 \title{Conceptual overview of the Logos network}
 \author{Amar Čolaković, Angela Popa, Eugen Stoyanov}
 \affil{LogosLabs}
-\date{January 15, 2024}
+\date{January 16, 2024}
 
 \begin{document}
 \maketitle
@@ -129,8 +129,8 @@ Virtualization in distributed environments is another crucial part of this DVCI.
 By utilizing Hypervisor technology, especially type-1 Hypervisors, it is possible to create a virtual environment that can access hardware "directly" without an OS-layer.
 Its important to mention that those environments can be fully isolated using different methods.
 Even in case a user has root privileges, his access to KVM resources can be limited by certain configurations and security measures.
-Since not every resource providers OS is capable of running type-1, type-2 Hypervisors will also be utilized.
-The only downside being increased computational duration, due to the OS-layer.
+Since not every resource provider's OS is capable of running type-1 Hypervisors, the type-2 Hypervisor will also be utilized.
+The only downside being the increase of computational duration, due to the OS-layer.
 By using OpenCL (Open Computing Language) and ROCm (Radeon Open Compute Platform), GPU virtualization (for use cases requiring this specific type of resource) can also be accomplished.
 Due to not every provided hardware being of same quality, resources will have to be divided into classes (by efficiency, compute-periods, volume of processable date, ...) in order to task them with fitting services.
 
