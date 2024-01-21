@@ -17,7 +17,7 @@
 \title{Conceptual overview of the Logos network}
 \author{Amar Čolaković, Angela Popa, Eugen Stoyanov}
 \affil{LogosLabs}
-\date{January 16, 2024}
+\date{January 21, 2024}
 
 \begin{document}
 \maketitle
@@ -701,15 +701,15 @@ This type of structure allows a clear separation between the configuration and t
 Through this approach, we want to define the DVCI with one type of smart contract (configuration) and use the others (operations) to create this infrastructure and keep it operational.
 Operations contracts can be used for each DVCI but the configuration smart contracts must be specific per DVCI.
 
-The Substrate contracts pallet \cite{sub-contract-pallet}, as provided by default, focuses primarily on the creation and management of smart contracts within the Substrate framework. 
+The Substrate contract pallet \cite{sub-contract-pallet}, as provided by default, focuses primarily on the creation and management of smart contracts within the Substrate framework. 
 Its core functions include the development, deployment and execution of smart contracts, the management of storage and state of the contracts, interactions between different contracts and fee management for the execution of contracts. 
 
-What the Substrate contracts pallet does not feature directly, however, are functions for use cases such as the separate storage and management of configuration data in standalone smart contracts.
+What the Substrate contract pallet does not feature directly, however, are functions for use cases such as the separate storage and management of configuration data in standalone smart contracts.
 If configurations are stored in separate smart contracts, they can be implemented modularly and reused by various other smart contracts. This enhances the reusability of code and configurations.
 Separate smart contracts for configurations make it also possible to update configuration data independently of the main contract (operations smart contract). 
 This can be useful if configurations need to be modified.
 
-To implement a system for storing configurations in independent smart contracts, separate solutions must be developed within the contracts pallet. 
+To implement a system for storing configurations in independent smart contracts, separate solutions must be developed within the contract pallet. 
 This may involve the creation of separate smart contracts for the management of configuration data or the development of special interfaces and protocols for communication and interaction between different contracts.
 
 The supply contract type will be developed in such a way that the network gatekeeper and the W3bI (network provision service) can be defined and implemented on the chain. 
@@ -720,7 +720,7 @@ The last type (web2to3) should be a conventional smart contract as it does not h
 This type of contract should enable the automated integration of web2 based services on the Logos network so that the resources of the network can be accessed.
 
 In the smart contract logic, terms \textit{groups}, \textit{layers} and \textit{sections} should be differentiated.
-In an infrastructure, there are various sectors such as network, security, computation, ..., which are divided here into so-called smart contract groups
+In an infrastructure, there are various sectors such as network, security, computation, ..., which are divided here into so-called smart contract groups.
 The terms layer and section are very closely related. 
 The DVCI is divided into different layers. 
 In each of these layers, the DVCI is managed at a different level, so that, for example, the network is provided at different levels.
