@@ -74,7 +74,7 @@ Therefore this sub0layer is required, to secure and decentralize those hosted no
 
 After the release of Logos network 1.0, the community will play a significant role in the further development and direction of the project, which will be ensured and defined via the \textit{Logos network philosophy}.
 The Logos network philosophy can be considered a kind of license.
-This means that the specifications of the Logos network philosophy can be "enforced" by defined regulations on the blockchain.
+This means that the specifications of the Logos network philosophy can be enforced by defined regulations on the blockchain.
 While some decisions will be completely in the hands of the community, the basic management and supervision of the project will remain with LogosLabs for the time being to ensure the stability and security of the network until it is fully established.
 
 The main focus of LogosLabs is to provide a \textit{community enterprise computational environment}, based on the Blockchain technology, for the Web3 infrastructure.
@@ -87,7 +87,7 @@ The infrastructure will be defined, secured and executed by a blockchain.
 The sub0layer (computational layer) will be the outcome of the Logos network.
 The Logos network will consist of four main components: the \textit{DVCI (Distributed Virtual Computing Infrastructure)}, the \textit{Logos chain}, the \textit{Network Gatekeeper} and of a "computational distribution regulator" \textit{W3bI}. 
 
-The DVCI will act as a "data center" where a blockchain will be utilized to ensure the security of operations.
+The DVCI will act as a data center where a blockchain will be utilized to ensure the security of operations.
 The DVCI consist of community provided computational resources and dedicated root servers hosted by LogosLabs with predefined virtual environments.
 
 A blockchain is simply a chain of data-blocks.
@@ -97,8 +97,8 @@ This type of technology and the implementation of a \textit{Smart Contract Logic
 
 The network gatekeeper will ensure that each infrastructure component (existing and future) complies with all security protocols, handle the communication between the DVCI and the blockchain and also transfer new instructions/configurations to the underlying blockchain.
 
-The W3bI will be the core "service" of the Logos network and the ecosystem and will provide the sub0layer for layer-0 and layer-1 blockchain infrastructures.
-This "service" will operate similarly to the current blockchain infrastructure providers, except that it will be defined on the blockchain (Logos chain) itself and the core infrastructure used in the backend (sub0layer) will be a full Web3 core infrastructure.
+The W3bI will be the core service of the Logos network and the ecosystem and will provide the sub0layer for layer-0 and layer-1 blockchain infrastructures.
+This service will operate similarly to the current blockchain infrastructure providers, except that it will be defined on the blockchain (Logos chain) itself and the core infrastructure used in the backend (sub0layer) will be a full Web3 core infrastructure.
 
 % FIGURE2
 \begin{center}
@@ -119,7 +119,7 @@ Big data centers these days can provide centralized computational infrastructure
 Because the DVCI is based on a decentralized approach, a variety of different issues will have to be addressed (e.g. network latency, virtualization in distributed environments, aggregated computation, ...).
 A cloud infrastructure, as DVCI aims to be, ultimately exists to productively manage the Web3 computational infrastructure, that is why response time is a crucial factor. 
 Response time being the duration it takes for a request to be processed and returned to the requester.
-It is a unit of measurement for the "rate" of a system. 
+It is a unit of measurement for the rate of a system. 
 It is important to note that this response time is not only defined by internal processes but is also affected by external factors (connection quality, hardware performance, local conditions, ...).
 
 A crucial component of such an infrastructure is a low-latency software defined network (SDN) to achieve acceptable response times.
@@ -129,7 +129,7 @@ In addition to \textit{computational networks (CoN)} there shall be two addition
 SeNe's will be used to divide resources in a global region, whereas RBN's will establish the connection between aforementioned regions.
 
 Virtualization in distributed environments is another crucial part of this DVCI.
-By utilizing Hypervisor technology, especially type-1 Hypervisors, it is possible to create a virtual environment that can access hardware "directly" without an OS-layer.
+By utilizing Hypervisor technology, especially type-1 Hypervisors, it is possible to create a virtual environment that can access hardware directly without an OS-layer.
 Its important to mention that those environments can be fully isolated using different methods.
 Even in case a user has root privileges, his access to KVM resources can be limited by certain configurations and security measures.
 
@@ -186,8 +186,8 @@ The amount of such regions will heavily depend on the network components' overal
 \textbf{Dedicated Root Server:}
 These servers will be tasked with providing an OpenStack environment for the DVCI in a global region.
 Every global region, as mentioned earlier, will have four dedicated root servers assigned to them in order to facilitate a server failover mechanism. This will enable the migration of a service to another server, in case of hardware malfunction.
-A reliable method in "high-availability" and "disaster recovery", is to physically distance data centers from each other. 
-Specifically the "active/passive failover" mechanism will be used.
+A reliable method in high-availability and disaster recovery, is to physically distance data centers from each other. 
+Specifically the \textit{active/passive failover} mechanism will be used.
 The advantage of this type of mechanism is, that standby-servers use only a small amount of computational resources, unless a service-migration has to be undertaken. 
 All root servers will operate a host-OS under strict security precautions. 
 The form of bare-metal network and LB-infrastructure will depend on the quality of the data centers' network infrastructure.
@@ -207,7 +207,7 @@ Each global region will consist of a computing environment and a client environm
 	
 	% CLIENT ENVIRONMENT
 	\item\textbf{Client Environment:} 
-	The client environment will be the "execution-layer" for the DVCI and act as the access point for the computational distribution regulator, W3bI. 
+	The client environment will be the execution-layer for the DVCI and act as the access point for the computational distribution regulator, W3bI. 
 	Client environments will be created in this layer (via OpenStack) and the aforementioned host-aggregates will be distributed to \textit{DVM's (Distributed Virtual Machines)}.
 	Virtual environments will be isolated through service networks, to ensure secure separation of different services. 
 \end{enumerate}
@@ -244,7 +244,7 @@ For a more comprehensive understanding of OpenStack, see \cite{OpenStackDoc-desi
 	% COMPUTE NODE	
 	\item\textbf{Compute Node:}
 	Compute nodes, included in the OpenStack system, will be responsible with the distribution of computational resources and the execution of the DVM's. 
-	The most important component operated by a compute node is "Nova" (OpenStack compute service).
+	The most important component operated by a compute node is \textit{Nova} (OpenStack compute service).
 	Every node should have its own Hypervisor (type1) to enable the creation and execution of VM's (DVM's). 
 	For further information on compute architecture, see \cite{OpenStackDoc-compute}. 
 	The approach of node-type separation on different physical servers is aimed at improving the virtualization efficiency.
@@ -283,7 +283,7 @@ In order to deliver distributed resources securely and efficiently several facto
 	\item \textbf{KVM Compute node:}
     KVM compute nodes will be tasked with providing the network with CPU's and RAM. 
     This type of node will only be applicable to hardware capable of virtualization (KVM).
-    Contrary to OpenStack compute nodes, KVM compute nodes will only be equipped with "libvirt" used by NOVA, not the full service. 
+    Contrary to OpenStack compute nodes, KVM compute nodes will only be equipped with \textit{libvirt} used by NOVA, not the full service. 
 			
 	% HYPER-TYPE2 COMPUTE NODE
 	\item \textbf{Hyper-Type2 Compute node:}
@@ -447,7 +447,7 @@ In DVCI, there should be three groups of network approaches (computational, serv
 \end{center}
 
 The fundamental idea here is to establish communication in the Logos network through an efficient low-latency network structure (external network service provider) with specific (Logos network) Software Defined Networks (SDNs). (What is Software-Defined Networking (SDN)? \cite{VMwareDoc-sdn})
-These SDNs will be defined on the blockchain in order to "bring" the network sector onto the blockchain.
+These SDNs will be defined on the blockchain in order to bring the network sector onto the blockchain.
 Since very low response times are not required for the Logos ecosystem and the network infrastructure is supported by SDNs, neither a very expensive nor a highly advanced network infrastructure (low-latency network structure) should be necessary.
 \newline
 
@@ -524,7 +524,7 @@ Smart contracts will be implemented in form of \textit{Smart Contract Logic}.
 Smart contract logic should be an environment where different smart contracts are clustered by use case.
 The Logos chain shall not be a public smart contract platform (e.g. Moonbeam, Astar, Phala Network, Cardano, ...).
 An independent chain will have to be deployed to ensure specific smart contract implementations (type of SC, privacy features, SC configurations, ...). 
-In order to create an efficient "system chain" all smart contracts on the Logos chain will have to be dedicated exclusively to the Logos network.
+In order to create an efficient system chain all smart contracts on the Logos chain will have to be dedicated exclusively to the Logos network.
 In principle, smart contracts on the Logos chain are not different from contracts on other chains, but the logic operating those contracts is.
 
 The execution times of smart contracts do not play a major role in the overall network efficiency, since at this service layer participating nodes are not affected.
@@ -537,14 +537,14 @@ This hybrid approach, which allows for public and private elements to coexist, c
 Simply speaking, this approach would ensure a clear control over who has access to what and when.
 Therefore combining the merits of both private networks and public infrastructures.
 
-The Logos chain will be developed as a "standalone chain" based on a substrate framework.
+The Logos chain will be developed as a standalone chain based on a substrate framework.
 The initial idea was to develop the Logos chain as a parachain in the Polkadot Ecosystem.
 Polkadot is a blockchain platform, its main goal is to operate an interoperable and scalable platform for the Web3.
 The basic idea behind Polkadot is to create a network of interconnected blockchains that promote scalability, security and interoperability.
 Polkadot, as a layer-0 blockchain, is designed to overcome fragmentation in the blockchain ecosystem by connecting different blockchains (layer-1 blockchains). 
 It enables secure and scalable interaction between them and promotes the flexibility and upgradeability of the overall system.
 Each parachain \cite{PolkadotDoc-parachain} (layer-1 blockchains) has its own specific rules and consensus mechanisms, independent of the relay chain, while it (relay chain) acts as a link to enable overall security and interaction between the parachains.
-From LogosLabs' perspective this approach (Relay chain with parachains) is "the way to go" for the future.
+From LogosLabs' perspective this approach (Relay chain with parachains) is the way to go for the future.
 
 % FIGURE9
 \begin{center}
@@ -569,7 +569,7 @@ Since the chain will be developed with the Substrate Framework, the migration to
 \subsubsection{Architecture and components}
 The Web3 infrastructure is the technological basis for the development and provision of decentralized applications and the communication between them. 
 It is a decentralized, interoperable and programmable infrastructure derived from blockchain and other distributed technologies.
-A new web infrastructure is created by "designating" blockchain nodes to layer-0 and layer-1 blockchains.
+A new web infrastructure is created by designating blockchain nodes to layer-0 and layer-1 blockchains.
 
 Substrate is an open-source framework developed by Parity Technologies, that enables the creation of custom blockchain networks for the Web3 era.
 Substrate provides a set of tools and libraries, that allow to design and implement blockchain protocols.
@@ -643,7 +643,7 @@ The Core Libraries, the FRAME Libraries and the Primitive Libraries.
 	\item\textbf{FRAME libraries:} 
     The libraries that make it possible to create the runtime logic and to encode and decode the information transferred from the runtime.
     The FRAME libraries provide the infrastructure for the runtime.
-    In addition to the infrastructure that is provided, the runtime can contain one or more "pallet" libraries.    
+    In addition to the infrastructure that is provided, the runtime can contain one or more \textit{pallet} libraries.    
 	
 	% PRIMITIVE LIBRARIES
 	\item\textbf{Primitive libraries:} 
@@ -703,7 +703,7 @@ Once deployed on a blockchain, the code of a smart contract cannot be changed wi
 This ensures the integrity and reliability of the contract.
 
 The \textit{Smart Contract Logic (SCL)}, simply speaking is a comprehensive set of different types of smart contracts, tasked with the execution of case specific instructions and measures as the interaction between those contracts.
-The term and the definition of "Smart Contract Logic" as such is only used in the Logos Ecosystem and should not be confused with the general term.
+The term and the definition of \textit{Smart Contract Logic} as such is only used in the Logos Ecosystem and should not be confused with the general term.
 
 Three types of contracts should be defined on the Logos chain:
 \textit{configuration smart contract (CSC)}, \textit{operation smart contract (OSC)} and \textit{privacy smart contract (PSC)}. 
@@ -736,7 +736,7 @@ This approach is essential for the development of the Logos chain since some con
 The implementation of private validators in a public network can be challenging and adds to the complexity of the overall network.
 Centralizing block production in a small set of nodes also introduces security risks, especially if the nodes are compromised or act in coordination to compromise the network.
 
-The PSC as well as the CSC and OSC type will be developed as separate substrate modules and can be included in the FRAME catalog after the successful implementation in the Logos Chain, in case the community requests for a proposal.  
+The PSC as well as the CSC and OSC type will be developed as separate substrate modules and can be included in the FRAME catalog after the successful implementation in the Logos Chain, in case the community requests it.  
 
 In the smart contract logic, terms \textit{groups}, \textit{layers} and \textit{sections} should be differentiated.
 In an infrastructure, there are various sectors such as network, security, computation, ..., which are divided here into so-called smart contract groups.
@@ -783,8 +783,8 @@ This means that the client NG (client NG in this case) will only be deployed aft
 The reason for the development of the Network gatekeeper is primarily to enable such an automated infrastructure.
 If you look at the CNCF (Cloud Native Computing Foundation) landscape \cite{cncf-land}, you realize how quick the development (technologically) in the cloud-native environment is progressing. 
 The Web3 world can benefit from some of these technologies (currently benefits but to a certain level) and that is why we want to make it easier to implement such technologies with the NG, allowing them to be defined and used more simply "on-chain".
-The network gatekeeper should enable automated communication of "cloud-native technologies" with the blockchain. 
-This means that, for example, "native requests" (e.g. "kubeadm join ...") are understood by the blockchain via the gatekeeper (implementation in the reference libraries) and transactions can be triggered automatically to execute the request.
+The network gatekeeper should enable automated communication of \textit{cloud-native technologies} with the blockchain. 
+This means that, for example, \textit{native requests} (e.g. "kubeadm join ...") are understood by the blockchain via the gatekeeper (implementation in the reference libraries) and transactions can be triggered automatically to execute the request.
 
 % FIGURE12
 \begin{center}
@@ -798,7 +798,7 @@ This means that, for example, "native requests" (e.g. "kubeadm join ...") are un
 \textbf{Access validator:}
 The \textit{Access validator} will be responsible for the validation of incoming requests (transactions). 
 Since not every random request should be forwarded to the blockchain, the \textit{AV} will have to perform a simple evaluation of the type of request and verify its compliance with prerequisites to trigger a transaction. 
-In case a request is valid, and came from a DRN it will be send to the "Translator" directly.
+In case a request is valid, and came from a DRN it will be send to the \textit{Translator} directly.
 If this request comes from the DVCI or from the computational distribution regulator W3bI, the access validator will provide this evaluated transaction to the dedicated validator.
 \newline
 
@@ -830,7 +830,7 @@ Simply speaking, the \textit{TL} will generate a request, in the required format
 The \textit{reference libraries} is an additional data-source (set of rules and guidance's) that the \textit{TL} use to produced specific (DVCI and W3bI) transactions.
 The reference libraries will be developed in such a manner, that the NG can be used for other use cases like the implementation of other cloud native technologies.
 For Example if a library for Kubernetes is defined in the NG, the translator will be able to provide a native call to trigger a Operations Smart Contract.
-Since we will not only use one existing technology ourselves, the idea is to implement the reference libraries as a type of a "configuration language libraries".
+Since we will not only use one existing technology ourselves, the idea is to implement the reference libraries as a type of a \textit{configuration language libraries}.
 \newline
 
 % EXECUTOR
@@ -848,16 +848,16 @@ In order for the Executor to receive the requested contract addresses (guidance)
 % NG-DAEMON
 \textbf{Network gatekeeper daemon:}
 The \textit{network gatekeeper daemon} will be the component responsible for security, thus playing a major role in the overall infrastructure. 
-The \textit{NGd} will run on the host-OS of each component and ensure that the configurations "uploaded" to the node by the blockchain are intact and unchanged, otherwise excluding the node from the infrastructure under a zero-tolerance policy. 
+The \textit{NGd} will run on the host-OS of each component and ensure that the configurations uploaded to the node by the blockchain are intact and unchanged, otherwise excluding the node from the infrastructure under a zero-tolerance policy. 
 \newline
 
 The middleware (Network Getkeeper) will be developed as open source.
-The focus of LogosLabs are "technologies" (OpenStack, Terraform, Ansible, ...) to be utilized for the Logos network.
+The focus of LogosLabs are the technologies (OpenStack, Terraform, Ansible, ...) which will be utilized for the Logos network.
 Once the middleware is developed and functional, there is always the possibility to use the code to implement more solutions (implementation in the reference libraries).  
 
 % COMPUTATIONAL DISTRIBUTATION REGULATOR
 \subsection{Computation Distribution Regulator W3bI}
-The W3bI will be a computation distribution regulator in the Logos network and of the ecosystem and will be primarily utilized to "host" blockchain nodes.
+The W3bI will be a computation distribution regulator in the Logos network and of the ecosystem and will be primarily utilized to host blockchain nodes.
 The regulator will additionally be used to provide alternative computation service environments that can be used for community Web3 projects in compliance with the Logos Network philosophy.
 The main approach, however, is to use the regulator to provide the sub0layer, created by the Logos Network, for the Web3 by enabling automated provisioning of blockchain nodes (layer-0 and layer-1 blockchain infrastructures) on the sub0layer. 
 
@@ -871,11 +871,11 @@ An entire platform (Web3 IaaS) is to be developed and provided in this service e
 For the provision of the W3bI service, the same implementation strategies will be used as for the Network Gatkeeper (OSCs and CSCs). 
 Definition and execution on the blockchain to perform multiple functions.
 The important thing to note here is that the execution time of the smart contracts on this layer has an impact on the services. 
-For this reason, "off-chain" elements will be implemented here to make the platform more efficient. 
+For this reason, \textit{off-chain} elements will be implemented here to make the platform more efficient. 
 
-The terms "on-chain" and "off-chain" fundamentally refer to different types of data processing and storage.
-"On-chain" refers to activities or transactions that take place directly on the blockchain.
-"Off-chain", on the other hand, refers to activities that take place outside of the blockchain and are not stored on the blockchain.
+The terms \textit{on-chain} and \textit{off-chain} fundamentally refer to different types of data processing and storage.
+\textit{On-chain} refers to activities or transactions that take place directly on the blockchain.
+\textit{Off-chain}, on the other hand, refers to activities that take place outside of the blockchain and are not stored on the blockchain.
 
 Off-chain transactions are related to the blockchain, even if they take place outside the blockchain. 
 They are part of the broader blockchain ecosystem and often interact in some form (complementary function, on-chain anchoring, trust anchor, ...) with on-chain data.
@@ -886,14 +886,14 @@ The approach of W3bI is to facilitate the provision of computational resources (
 Like the Logos network itself, W3bI will be part of the \textit{common-good} initiative to encourage and contribute to the development of Web3.
 
 This service will not be economically independent, since it is part of the network itself. 
-Even if the service does not function completely autonomously and is maintained by LogosLabs, it must be regulated in order to comply with the "limited-profit" approach.
-The "limited-profit" approach will become part of the Logos governance system.
+Even if the service does not function completely autonomously and is maintained by LogosLabs, it must be regulated in order to comply with the \textit{limited-profit} approach.
+The \textit{limited-profit} approach will become part of the Logos governance system.
 This means that the provider (LogosLabs) of the W3bI service is obliged to comply with the pricing decided by the community in compliance with the Logos network philosophy.
 
 % CLOUD COMPUTING
 \subsubsection{Cloud computing}
-The type of "platform" (W3bI) that will be developed is generally referred to as a "Blockchain-as-a-Service" (BaaS) \cite{baas} platform. 
-It is equivalent to other "as-a-Service" models in the cloud sector, such as Software-as-a-Service (SaaS), Platform-as-a-Service (PaaS) or Infrastructure-as-a-Service (IaaS) (IaaS/PaaS/SaaS definitions \cite{iaas-paas-saas}), but specifically focused on blockchain technologies.
+The type of platform (W3bI) that will be developed is generally referred to as a \textit{Blockchain-as-a-Service} (BaaS) \cite{baas} platform. 
+It is equivalent to other \textit{as-a-Service} models in the cloud sector, such as Software-as-a-Service (SaaS), Platform-as-a-Service (PaaS) or Infrastructure-as-a-Service (IaaS) (IaaS/PaaS/SaaS definitions \cite{iaas-paas-saas}), but specifically focused on blockchain technologies.
 This is a commonly used term that can be interpreted in many different ways.  
 From the LogosLabs perspective, W3bI should be a \textit{Web3 IaaS platform/infrastructure}.
 
@@ -922,10 +922,10 @@ Detailed specifications of the architecture will be provided with the technical 
 % NETWORK REALIZATION
 \section{Network realization}
 At this point, all key-components (DVCI, Logos chain, the network gatekeeper and the computational distribution regulator; W3bI), comprising the Logos network, have been described in detail. 
-Before deep-diving into the realization of the network and its role in the World Wide Web, the Logos network itself has to be distinguished from the future "services" (additional compute service environments) (except W3bI) using it. 
+Before deep-diving into the realization of the network and its role in the World Wide Web, the Logos network itself has to be distinguished from the future \textit{services} (additional compute service environments) (except W3bI) using it. 
 
-Simply speaking, the Logos network will be an autonomous infrastructure that provides service-specific (Logos Ecosystem) computational/service environments, the "services" on the other hand will be "customers" (consumers of computational resources) of the Logos network.
-This "customers" will be able to "rent" a computational environment for a specific \textit{lease-time}.
+Simply speaking, the Logos network will be an autonomous infrastructure that provides service-specific computational/service environments (Logos Ecosystem), the \textit{services} on the other hand will be \textit{customers} (consumers of computational resources) of the Logos network.
+These \textit{customers} will be able to \textit{rent} a computational environment for a specific \textit{lease-time}.
 As described earlier, the main intention of LogosLabs is to further secure and truly decentralize the Web3 infrastructure. 
 This shall be accomplished by the "sub0layer" and the advantages Web3 presents over the conventional tech-sphere (Web2).
 
@@ -941,7 +941,7 @@ The communication between the blockchain and physical hardware (via the network 
 	Figure 14: General overview of how the Logos network will be utilized
 \end{center}
 
-The "services" supported by the Logos Ecosystem will have access to computational resources provided by the DVCI (sub0layer), making the DVCI compatible with many Web3 based cloud services.
+The \textit{services} supported by the Logos Ecosystem will have access to computational resources provided by the DVCI (sub0layer), making the DVCI compatible with many Web3 based cloud services.
 The decision over the inclusion of a service into the network or a potential increase in compute power allocated to a service shall be, under the \textit{Logos network philosophy}, ruled on by the community.
 The same Logos network philosophy requirements applied to W3bI will be applied to all other services, but as the computation distribution regulator is the core service of the ecosystem, W3bI will not have a conventional lease time as it is intended to facilitate the implementation of the Logos network itself into the World Wide Web.
 The Logos ecosystem (web3 community projects) shall focus exclusively on three fields; Decentralization, education and science.
@@ -985,7 +985,7 @@ Access validator (NG) & AV & The Access validator (NG) is responsible for the va
 Computing environment & CoE & The DVCI-layer-2 or back-end phase takes on layer-specific actions in managing, connecting and securing the DVCI. & 2.1.1 \\ %LINE-END
 Computational network & CoN & A low-latency software-defined network that enable internal networking in a DVCI. & 2.1.4 \\ %LINE-END
 Configuration smart contract & CSC & This smart contracts store the DVCI configurations. & 2.2.2 \\ %LINE-END 
-Client environment & ClE & This environment is the "execution-layer" for the DVCI and act as the access point for services. & 2.1.1 \\ %LINE-END
+Client environment & ClE & This environment is the \textit{execution-layer} for the DVCI and act as the access point for services. & 2.1.1 \\ %LINE-END
 Dedicated root server & DRS & These servers are used for providing an OpenStack environment for the DVCI in a global region. & 2.1.1 \\ %LINE-END
 Deployment validator (NG) & DV & The DV (NG) process the blockchain-configuration deployment requests & 2.3 \\ %LINE-END
 Distributed Virtual \newline Computing Infrastructure & DVCI & A Web3 cloud infrastructure. & 2.1 \\ %LINE-END
