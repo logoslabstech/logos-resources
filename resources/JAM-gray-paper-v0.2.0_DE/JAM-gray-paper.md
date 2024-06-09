@@ -15,7 +15,12 @@ GAVIN@PARITY.IO
 </div>
 <br />
 
-Original Paper: https://github.com/gavofyork/graypaper/releases/tag/v0.2.0
+<br />
+<div align="center">  
+
+Originalarbeit: https://github.com/gavofyork/graypaper/releases/tag/v0.2.0
+</div>
+<br />
 
 <br />
 <div align="center">   
