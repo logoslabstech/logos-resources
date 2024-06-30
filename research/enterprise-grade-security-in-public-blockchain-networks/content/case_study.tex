@@ -1,0 +1,153 @@
+% CASE STUDY
+\section{Case Study}
+This study fundamentally adheres to the requirements for providing a publicly provisioned blockchain infrastructure that delivers security, privacy, and efficiency at an enterprise-grade level. The Logos Blockchain (primary reason for this research) is designed specifically for certain use cases rather than being a general-purpose blockchain. However, the security model that will be implemented in the Logos chain, and presented in detail in this study, especially in section 4 (Findings), can possibly be applicable to other blockchain frameworks. The findings primarily present the core principles and methodologies that can be adapted to enhance the security and performance of blockchain systems generally, before presenting the possible substrate-based solution.
+
+In this section, the description of the case study is outlined. First, we define the general security aspects of a Blockchain network, and then in Section 2.2 (Requirements), the general security requirements for an enterprise-grade blockchain infrastructure are presented. This leads to Section 2.3 (Specifications), where these requirements are specified and defined to create a comprehensive picture of what an enterprise-grade security model demands regarding security and privacy.
+
+% DEFINITION
+\subsection{Definition}
+This research primarily focuses on the security and privacy aspects of a blockchain network\cite{block_secure_blog}, it does not delve into aspects such as scalability, network performance, upgrade and maintenance capability, etc. These aspects will be addressed in a separate research project, focusing on achieving optimal efficiency in a distributed system like blockchain.
+
+We define here the "general security" in a blockchain network. For practical purposes, we designate it here as a \textit{general security model} and categorize it into four distinct sections. As elaborated in Chapter 1.2, this segmentation also streamlines the research of individual sections and the development of solution approaches independently, and they must adhere to predefined fundamental network rules as they pertain to the entire system. It is important to note that although the segmentation of security provides a certain structure, it must be acknowledged that these sections intersect.
+Generally, we define the security characteristics (general security model) of a blockchain network as follows:
+
+\begin{enumerate}[label=\textbullet]
+
+	% IDENTITIES, ACCESS CONTROL AND KEY MANAGEMENT 
+	\item\textbf{Identities, Access Control and Key Management:}\cite{nist_pub_key_mgmt}\cite{sub_acc_add_key}\cite{nist_pub_bloc_acc_ctrl}\cite{hype_dkms}
+	In blockchain systems, identity management, access controls, and key management are central security aspects. 
+	Generally an \textit{identity} is represented by an \textit{account}, secured by a key pair consisting of a \textit{public and a private key}. The private key signs transactions, while the public key serves for identification within the network. Managing these keys includes secure creation, storage, and recovery.
+	In addition to regular user accounts, there are also \textit{technical or service accounts} used for specific tasks or \textit{privileged operations}, such as smart contracts or oracles. These accounts often have special rights and access levels and are frequently protected by Hardware Security Modules (HSMs).
+	An important concept are \textit{session keys} (substrate term), which are temporary key pairs employed by validators. These keys are rotated regularly to enhance security and minimize the risk of long-term key compromises. Session keys enable validators to efficiently handle various critical tasks such as signing blocks and secure network communication. 
+	\textit{Access controls} ensure that only authorized entities can access specific functions and data. Most modern frameworks typically offer the flexibility to implement customized \textit{role-based or attribute-based access control mechanisms}, although these mechanisms are not necessarily provided natively. 
+
+	% CRYPTOGRAPHIC MECHANISMS AND DATA PRIVACY
+	\item\textbf{Cryptographic Mechanisms and Data Privacy:}\cite{sub_crypto}\cite{zkp_pub_85}
+	In blockchain systems generally, cryptographic mechanisms and data privacy are fundamental elements that ensure the security and confidentiality of data. Cryptographic algorithms such as \textit{SHA-256, Blake2b, and elliptic curve cryptography (ECC) (e.g. sr25519; ed25519)} are utilized to ensure data integrity and authenticity. Hash functions like SHA-256 generate unique, immutable checksums for data, making any manipulation immediately detectable. ECC is used to create secure key pairs and digital signatures that authenticate transactions and protect against unauthorized modifications.
+	In blockchains, these cryptographic mechanisms are closely tied to account management. As each \textit{account is secured by a key pair} consisting of a public and a private key. In addition to fundamental cryptographic mechanisms, there is increasing work on advanced techniques such as \textit{Zero-Knowledge Proofs (ZKPs)}. ZKPs allow the verification of the validity of information without revealing the information itself, significantly enhancing user privacy.
+	\textit{Encryption} also plays a central role in \textit{data privacy}. Data stored on the blockchain can be protected using encryption techniques to ensure that only authorized parties have access to sensitive information. Various encryption methods can be applied to secure both data in "transit" and data at "rest".
+
+	% CONSENSUS MECHANISMS AND NETWORK SECURITY
+	\item\textbf{Consensus Mechanisms and Network Security:}\cite{sub_consens}\cite{polkadot_paper}
+	In blockchain systems, consensus mechanisms and network security are crucial for ensuring the integrity and availability of the network. Consensus mechanisms determine how transactions are validated and new blocks are added to the blockchain. Frameworks typically support various consensus algorithms such as \textit{Proof of Stake (PoS), Proof of Authority (PoA), Practical Byzantine Fault Tolerance (PBFT)}, etc.
+	There is also an interesting specific variant of PoS called \textit{Nominated Proof of Stake (NPoS)}. NPoS is based on the principle that validators are elected by nominators who stake their tokens. This promotes decentralization and ensures that only trusted validators can create blocks. A critical security risk in blockchain systems is the \textit{51\% attack}. In a 51\% attack, a single entity or a coalition controls the majority of the network's hashrate (in Proof of Work) or staked tokens (in Proof of Stake). This allows them to manipulate transactions, perform double-spending, and censor or rewrite new blocks. This risk is mitigated by NPoS, where the selection and monitoring of validators are carried out by a broad community of nominators, making it difficult and costly to gain control over the network due to the involvement of multiple stakeholders.
+	Proof of Authority (PoA), for example, relies on a limited number of trusted validators who are authorized based on their identity and reputation. While PoA enables high speed and efficiency, it is less relevant for public blockchains as it relies on trust in private parties. From the aforementioned example (NPos), the importance of consensus mechanisms in a blockchain network becomes clearly evident.
+	In addition to consensus mechanisms, network security plays a central role. Network security measures include protection against \textit{Distributed Denial of Service (DDoS) attacks, Sybil attacks}, and other malicious activities. Networks implement mechanisms such as peer authentication, network segmentation, and the use of secure communication protocols like \textit{Transport Layer Security (TLS)} to ensure the integrity and confidentiality of data transmission.
+
+	% AUDITING, POLICIES AND REGULATIONS
+	\item\textbf{Auditing, Policies and Regulations:}\cite{hype_security}\cite{nist_pub_bloc_acc_ctrl}
+    In blockchain systems, auditing, policies, and regulations are crucial components to ensure transparency, compliance, and trust. Auditing involves the systematic review and analysis of blockchain transactions and activities to detect and prevent fraud, ensure data integrity, and verify compliance with relevant standards and regulations.
+	Blockchain frameworks, including Substrate, provide tools and mechanisms to facilitate comprehensive auditing. These include immutable ledgers that record every transaction, cryptographic proofs that ensure the integrity of data, and smart contracts that can automate compliance checks and reporting. Auditors can leverage these features to conduct real-time audits, trace transactions, and verify the authenticity of data on the blockchain.
+	Policies define the rules and guidelines that govern the operation and use of the blockchain network. These policies may cover various aspects such as access control, data privacy, transaction processing, and security measures. Policies can be implemented and enforced through on-chain governance mechanisms, allowing stakeholders to propose, vote on, and enact changes to the network's rules and parameters.
+	Regulations refer to the legal and regulatory frameworks that blockchain networks must comply with. These may include data protection laws, financial regulations, anti-money laundering (AML) requirements, and other legal standards. Compliance with regulations is crucial for ensuring the legitimacy and acceptance of blockchain technology in various industries. Substrate's modular architecture allows developers to build compliance into their blockchain applications, ensuring that they meet the necessary regulatory requirements.
+	Effective auditing, robust policies, and strict regulatory compliance are vital for maintaining the integrity, security, and trustworthiness of blockchain systems. By leveraging these principles its possible to implement comprehensive auditing practices, establish clear policies, and ensure adherence to relevant regulations, thereby fostering a secure and transparent blockchain environment.
+
+\end{enumerate}
+
+These are the fundamental elements that constitute security and privacy in a blockchain network. The area of isolated execution is not addressed in this research as it pertains to a specific field that requires separate consideration. 
+
+In this study, we specifically address the use case of private transactions without involving a closed consortium. Solutions that incorporate private validation parties are not considered. The aim is to define a system capable of handling private transactions without involving private parties, utilizing the highest security compliance and automation level.
+The next section outlines the general security and privacy requirements that such a blockchain network needs to achieve to reach the highest possible security grade. 
+
+% REQUIREMENTS
+\subsection{Requirements}
+We have defined the "general security model" that represents the overall security of a blockchain system. Based on this general model, we go into specific areas and outline the general requirements for an enterprise-grade security system. Generally, this system must be capable of providing high levels of resilience and privacy using the principles of zero trust, zero knowledge, and zero tolerance. As an enterprise-grade system, it must be highly regulated and automated. 
+We define the general requirements for a highly secure, community-provisioned, and governed blockchain system as follows:
+
+\begin{enumerate}[label=\textbullet]
+	\item\textbf{Identities, Access Control and Key Management}\cite{nist_pub_key_mgmt}\cite{sub_acc_add_key}\cite{nist_pub_bloc_acc_ctrl}\cite{hype_dkms}\\
+	In an enterprise system, clearly defined identities are very important. All system accounts (\textit{service and technical accounts}) must have a unique and verifiable identity to ensure trust within the network. Identities must be tied to specific roles within a network, such as admin, peer, client, etc., to control their access and actions. This simplifies management and ensures consistent application of access policies. The process of issuing and managing identities must be secure to prevent unauthorized access and impersonation. The system must support the revocation of identities to ensure that compromised identities cannot be used. 
+	
+	Fine-grained control over access to resources is necessary to protect sensitive information and operations. This involves defining \textit{Access Control Lists (ACLs)} that specify permissions for accessing resources. These ACLs must be capable of detailed specification, allowing policies to control access at the level of individual resources or actions. The system must allow for the creation, modification, and deletion of access control policies in real-time. This involves the ability to update ACLs, role definitions, access control rules, etc., as the network needs to evolve.
+	
+	Keys (not public participants' keys) must be generated and stored in a secure environment to prevent unauthorized access. The system must employ \textit{Hardware Security Modules (HSMs)} or equivalent secure storage solutions to protect private keys. Keys must be stored in a tamper-resistant environment to prevent extraction. Regularly rotating keys and revoking compromised keys is important to maintain ongoing security. This involves generating new keys, securely distributing them, and deprecating old keys without interrupting ongoing operations. These mechanisms must be in place to ensure that revoked keys cannot be used for further operations.
+
+	\item\textbf{Cryptographic Mechanisms and Data Privacy}\cite{sub_crypto}\cite{zkp_pub_85}\\
+	Use of strong, standardized cryptographic algorithms to ensure the confidentiality, integrity, and authenticity of data is a fundamental element of security in general. The system must implement advanced cryptographic algorithms such as \textit{AES (Advanced Encryption Standard)} for symmetric encryption, \textit{RSA (Rivest-Shamir-Adleman)}, and \textit{ECC (Elliptic Curve Cryptography)} for asymmetric encryption. Such algorithms are selected based on their proven security and efficiency. Standards from organizations like \textit{ISO (International Organization for Standardization)}, \textit{NIST (National Institute of Standards and Technology)}, and \textit{CIS (Center for Internet Security)} must be followed to ensure compliance with industry best practices. The system must use cryptographic hash functions combined with digital signatures to verify the integrity and the origin of data.
+	
+	The system should incorporate \textit{Zero-Knowledge Proofs (ZKPs)} to allow one party to prove to another that a statement is true without revealing any additional information. Techniques such as \textit{zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge)} and \textit{zk-STARKs (Zero-Knowledge Scalable Transparent Arguments of Knowledge)} can be used. ZKPs are essential for scenarios where transaction details need to remain confidential while still ensuring the transaction's validity—in other words, the ability to perform private transactions with zero knowledge.
+	
+	Sensitive data stored on the blockchain must be encrypted. Encryption should be applied at rest and in transit to ensure that data remains confidential. Only authorized parties should have access to decryption keys, ensuring that sensitive data is protected even if the storage medium is compromised. \textit{TLS} must be used to encrypt data in transit, ensuring that data exchanged between nodes is protected from eavesdropping and tampering. \textit{Mutual TLS (mTLS)} can be implemented to authenticate both the client and server, enhancing security in communication. Techniques such as \textit{pseudonymization} and \textit{anonymization} must be employed to obscure \textit{personally identifiable information (PII)}. This involves replacing sensitive data with pseudonyms or removing identifiable elements to protect user privacy while allowing data analysis and processing.
+
+	\item\textbf{Consensus Mechanisms and Network Security}\cite{sub_consens}\cite{polkadot_paper}\\
+	The system must continue operating correctly despite node failures or malicious actions. Enterprise blockchain systems require robust fault tolerance mechanisms to maintain network reliability. \textit{Byzantine Fault Tolerance (BFT)} mechanism implementations are commonly used to handle scenarios where some nodes may act maliciously or fail. BFT generally ensures that consensus can be reached as long as a majority of nodes are honest. Fault tolerance also involves \textit{crash fault tolerance (CFT)}, where the system can recover from node crashes without losing data integrity or network functionality. 
+	
+	The Blockchain System must maintain a decentralized network structure to prevent central points of failure or control. Decentralization is achieved by distributing the consensus process among multiple independent nodes. This prevents any single entity from having control over the entire network Consensus mechanisms must be designed to mitigate risks such as Sybil attacks, where an attacker creates multiple fake identities to gain influence over the network. Using mechanisms like PoW or PoS, which require significant resource investment to participate, helps protect against such attacks. Additionally, mechanisms must ensure transaction finality and prevent double-spending by ensuring that once a transaction is confirmed, it cannot be reversed or duplicated. Blockchain systems generally aim for energy-efficient consensus mechanisms to reduce operational costs and environmental impact. Alternatives to energy-intensive \textit{Proof of Work (PoW)}, such as \textit{Proof of Stake (PoS)} and its variants, offer significant energy savings. These mechanisms maintain security by relying on economic incentives rather than computational power. 
+	
+	Implementing systems like \textit{intrusion detection systems (IDS)} and \textit{intrusion prevention systems (IPS)} is essential. These systems monitor network traffic, identify suspicious activities, and automatically respond to potential threats. Continuous monitoring and anomaly detection help in early detection and mitigation of security breaches. Only Authenticate and authorize nodes are legitimate participants and can access the network. Its fundamental to establish a robust plan for responding to security incidents and network failures. 
+
+	\item\textbf{Auditing, Policies and Regulations}\cite{hype_security}\cite{nist_pub_bloc_acc_ctrl}\\
+	One of the most important elements of a system is determining whether it functions as intended and adheres to all applicable guidelines and regulations. Enterprise blockchain systems must record all transactions and changes in an immutable ledger. This ensures transparency and accountability. Each transaction is timestamped and linked to the preceding transaction, creating a clear and unalterable history. This audit trail is crucial for regulatory compliance, internal audits, and general investigations.
+	
+	The blockchain system must adhere to relevant guidelines and standards set by organizations such as NIST, ISO, and other industry-specific regulatory bodies. This includes complying with data protection regulations like \textit{GDPR(General Data Protection Regulation)}\cite{gpdr_std} and implementing security controls and practices recommended by these standards to ensure compliance and avoid legal penalties.
+	
+	Mechanisms must be implemented to protect data stored on the blockchain. This includes data minimization, encryption, and providing users with control over their data (e.g., consent management, data access requests). Regular audits and assessments should be conducted to ensure ongoing compliance. Different industries have unique regulatory requirements. For instance, financial services must comply with regulations like the \textit{Sarbanes-Oxley Act (SOX)}, while healthcare systems must adhere to \textit{HIPAA}. Ensuring compliance with these regulations involves implementing specific controls, conducting regular compliance audits, and maintaining detailed records of all regulatory interactions.
+	Through the implementation of various regulations via a policy-based system, it is possible to use one system across different sectors while adhering to all regulatory requirements. This approach provides a security model with a certain level of generality.   
+\end{enumerate}
+
+As with the "general security model," this representation also depicts a general version of enterprise-grade security. As can be inferred from this, handling security in an enterprise environment is much more structured and controlled. It must comply with widely accepted security regulations, leading to the perception of such a system as both credible and highly secure.
+Most currently available enterprise systems do not fully adhere to all zero trust principles, while many public enterprise blockchain systems face challenges with implementing high privacy measures and the introduction of regulations and standardizations. There is a necessity to provide a security system that meets enterprise requirements but is implemented within a public network. Public platforms like \textit{Ethereum}, \textit{Solana}, and \textit{Cardano} offer a certain degree of enterprise-grade security, yet there are areas where they currently have limitations. These platforms encounter challenges such as \textit{regulatory compliance}, \textit{implementation complexity}, and the \textit{implementation of security standards}. Enterprises must carefully consider these factors and potentially implement additional security measures to meet their specific requirements and ensure full compliance with security standards.
+
+The objective of this study is to integrate both aspects (enterprise and public) and provide a highly secure, standardized, and trustless security system for public blockchain networks (in our case, substrate-based). In the next section, we will specify the requirements that an enterprise security system demands as clearly as possible at this stage and set these as the general goals of the research, which will then be presented as solution proposals in Section 4 (Findings).
+
+% SPECIFICATIONS
+\subsection{Specifications}
+The following enterprise security requirement specifications are derived from our ongoing research and establish the foundational principles for a highly secure system. These principles will guide further detailed analysis and comprehensive reporting on specific security areas, aiming to present potential implementations of the outlined requirements. As this is the initial draft, future versions may introduce new requirements or remove some, based on new insights from ongoing research, with the goal of developing a concrete solution.
+
+First, we outline the foundational standards for an enterprise-based system. Establishing standards is essential for creating a stable and secure system. Renowned standardization organizations, such as \textit{ISO/IEC(International Organization for Standardization/International Electrotechnical Commission)\cite{iso_std}\cite{iec_std}, NIST(National Institute of Standards and Technology)\cite{nist_std}, IETF(Internet Engineering Task Force)\cite{ietf_std}, CIS(Center for Internet Security)\cite{cis_std} and ENISA(The European Union Agency for Cybersecurity)\cite{enisa_std}}, provide guidelines and standards that are widely accepted as secure and reliable. Consequently, this research and the resulting findings will adhere to these established norms. For each requirement, the relevant standard will be identified and defined. Below, we specify the general enterprise security requirements for a blockchain system.
+
+\begin{enumerate}[label=(\arabic*)]	
+	\item\textbf{Identities, Access Control and Key Management}\\
+	- All system accounts must have unique and verifiable identities.\\
+	- All identities must be associated with specific roles within the network.\\
+	- The system must support secure processes for issuing and managing identities.\\
+	- Identity revocation must be supported to prevent the use of compromised identities.\\
+	- Fine-grained access control mechanisms must be implemented.\\
+	- The system must support real-time creation, modification, and deletion of access control policies.\\
+	- Dynamic updates of policies, role definitions, and access control rules must be achievable.\\
+	- Keys must be generated and stored in secure and tamper-resistant environments.\\
+	- Hardware Security Modules (HSMs) or equivalent secure storage solutions must be used.\\
+	- Regular key rotation and revocation of compromised keys must be implemented.\\
+	- Mechanisms for secure key distribution and deprecation of old keys must be in place.\\
+	
+	\item\textbf{Cryptographic Mechanisms and Data Privacy}\\
+	- Strong, standardized cryptographic algorithms must be used.\\
+	- Cryptographic hash functions combined with digital signatures must be used to verify data integrity and origin.\\
+	- Privacy-preserving technologies such as zero-knowledge proofs (ZKPs) must be implemented.\\
+	- Techniques to ensure transaction validity without revealing additional information must be used.\\ 
+	- Data must be encrypted at "rest" and in "transit".\\
+	- Access to decryption keys must be limited to authorized parties only.\\
+	- Mutual authentication mechanisms must secure communication between nodes.\\
+	- Pseudonymization and anonymization techniques must protect personally identifiable information (PII).\\
+	
+	\item\textbf{Consensus Mechanisms and Network Security}\\
+	- Robust and fault-tolerant consensus mechanisms must be implemented.\\
+	- The system must tolerate node failures and malicious actions while maintaining consensus.\\
+	- Consensus algorithms must provide security against common attacks, including Sybil attacks and double-spending.\\
+	- Transaction finality must be ensured to prevent transactions from being reversed or duplicated.\\
+	- Monitoring and intrusion detection/prevention systems must identify and respond to suspicious activities.\\
+	- Continuous monitoring and anomaly detection must be performed for early breach detection.\\
+	- Nodes must be authenticated and authorized to ensure only legitimate participants access the network.\\
+	- Rate limiting, traffic filtering, and load balancing must be used to mitigate DDoS attacks.\\
+	- Predefined procedures for responding to security incidents and network failures must be prepared.\\
+	- The incident response plan must be regularly tested and updated to ensure effectiveness.\\
+	
+	\item\textbf{Auditing, Policies and Regulations}\\
+	- Regular security audits and assessments must be conducted.\\
+	- All transactions and changes must be recorded in an immutable ledger for transparency and accountability.\\
+	- Internal and external audits must ensure compliance with security policies and standards.\\
+	- Audit trails must facilitate regulatory compliance, internal audits, and investigations.\\
+	- Adherence to relevant legal and regulatory requirements is mandatory.\\
+	- Guidelines and standards set by regulatory bodies such as NIST, ISO, and industry-specific regulators must be followed.\\
+	- Compliance with data protection regulations like GDPR must be maintained.\\
+	- Detailed records of compliance activities must be kept, and compliance measures must be regularly reviewed.\\
+	- Data minimization, encryption, and user control mechanisms must ensure data protection.\\
+	- Regular assessments must ensure ongoing compliance with data protection regulations.\\
+	- Comprehensive security policies must be developed and enforced.\\
+	- Clear policies covering data protection, incident response, and access control must be established.\\
+	- Policies must be regularly reviewed and updated to reflect changes in the threat landscape and regulatory requirements.\\
+\end{enumerate}
+
+Our aim is to propose a stable and secure enterprise system by adhering to globally recognized standards. By following the guidelines provided by organizations such as \textit{ISO/IEC, NIST, IETF, CIS and ENISA}, we ensure that our research aligns with best practices. Each identified requirement will be associated with a corresponding standard, clearly defined to maintain consistency and reliability.
+
+\newpage

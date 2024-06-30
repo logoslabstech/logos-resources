@@ -1,80 +1,62 @@
 \documentclass[]{article}
+\input{preamble.tex}
 
-%packages
-\usepackage{authblk} % Support for footnote style author/affiliation
-\usepackage{graphicx} % Enhanced support for graphics
-\usepackage{enumitem} % Extended management and customization for list settings such as enumerate, itemize and description
-\usepackage{longtable}
-\usepackage[backend=bibtex]{biblatex} % Sophisticated Bibliographies in LATEX
-\usepackage[a4paper, total={6in,10in}]{geometry} % Flexible and complete interface to document dimensions
-\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref} % Enables hyperlinks
-
-%variables
-\graphicspath{ {./img/} } % ref to graphicx
-\addbibresource{./references.bib} % ref to biblatex 
-
-%opening
-\title{Enterprise-Grade Security in Public Blockchain Networks: Handling Private Transactions, Strict Access Control, Key Management, Isolated Execution, Zero-Trust and Zero-Knowledge Principles }
-\author[1]{Amar Čolaković}
-\author[1]{Angela Popa}
-\affil[1]{LogosLabs}
-\date{June xx, 2024}
+% METADATA
+\input{metadata.tex}
 
 \begin{document}
 \maketitle
 
-% ABSTRACT
-\begin{abstract}
-This research paper explores enterprise-grade security in public blockchain networks, focusing on the handling of private transactions, strict access control, advanced key management, isolated execution, zero-trust, and zero-knowledge principles. The study aims to address the critical security and privacy challenges in blockchain technology, particularly in environments where robust security measures are paramount. Through a comprehensive analysis of current security protocols and the implementation of advanced cryptographic techniques, this research provides insights into effective strategies for safeguarding blockchain operations. The findings demonstrate the importance of integrating these security principles to enhance the overall resilience and trustworthiness of public blockchain networks.        
-\end{abstract}
+% RELEASE HISTORY
+\releasehistory
 
-% CONTENTS
+% ABSTRACT
+\input{content/abstract.tex}
+
+% TABEL OF CONTENT
 \tableofcontents
 \newpage
 
 % INTRODUCTION
-\section{Introduction}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+\input{content/introduction.tex}
 
 % CASE STUDY
-\section{Case Study}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+\input{content/case_study.tex}
 
-% CONTEXT AND SIGNIFICANCE
-\section{Context and Significance}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+% THEORETICAL FOUNDATION
+\input{content/theoretical_foundations.tex}
+\input{content/theoretical_foundations_identy_access_control_key_mgmt.tex}
+\input{content/theoretical_foundations_crypto_mech_data_privacy.tex}
+\input{content/theoretical_foundations_cons_mech_network_security.tex}
+\input{content/theoretical_foundations_audit_policies_regulations.tex}
 
 % FINDINGS
-\section{Findings}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+\input{content/findings.tex}
+\input{content/findings_identy_access_control_key_mgmt.tex}
+\input{content/findings_crypto_mech_data_privacy.tex}
+\input{content/findings_cons_mech_network_security.tex}
+\input{content/findings_audit_policies_regulations.tex}
+\input{content/findings_security_model_prop.tex}
 
-% DISCUSION
-\section{Discussion}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+% DISCUSSION
+\input{content/discussion.tex}
+\input{content/discussion_identy_access_control_key_mgmt.tex}
+\input{content/discussion_crypto_mech_data_privacy.tex}
+\input{content/discussion_cons_mech_network_security.tex}
+\input{content/discussion_audit_policies_regulations.tex}
+\input{content/discussion_justification_of_proposal.tex}
 
 % CONCLUSION
-\section{Conclusion}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+\input{content/conclusion.tex}
 
 % REFERENCES
 \newpage
-\printbibliography % usage: text \cite{key} # references
-\newpage
 
-\newpage
+\printbibliography
+
 % GLOSSARY
-\section*{Glossary}
-\addcontentsline{toc}{section}{\protect\numberline{}Glossary}    
-\begin{longtable}{p{0.3\linewidth} p{0.1\linewidth} p{0.45\linewidth} p{0.1\linewidth}}
-	\textbf{Name}&\textbf{Acronym}&\textbf{Description}&\textbf{Definition}\newline \\ \hline
-	\endfirsthead
-	\textbf{Name}&\textbf{Acronym}&\textbf{Description}&\textbf{Definition}\newline \\ \hline
-	\endhead
+\newpage
 
- &  &  &   \\ %LINE-END
- &  &  &   \\ %LINE-END
-
-	\caption{Glossary for the Logos network}
-\end{longtable}
+\input{content/glossary.tex}
 
 \end{document}
