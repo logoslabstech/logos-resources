@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This repository is no longer maintained and has been migrated to https://github.com/logoslabstech/logos-project-resources, where it continues under the GFDLv1.3 license.
+
 # Central README Repository for Logos Projects
 **This repository contains `THE README` for the Logos projects, including concepts, research, RFCs and specifications related to the project.**
 
